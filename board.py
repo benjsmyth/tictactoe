@@ -1,4 +1,4 @@
-class Board():
+class Board:
     def __init__(self, width):
         self.width = width
         self.board = [  # Internal data structure
