@@ -1,4 +1,4 @@
-# Assignment 3
+# Tic-Tac-Toe
 
 ## Compilation
 Run `py play.py` in this directory.
