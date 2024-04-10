@@ -1,13 +1,10 @@
-# Assignment 3
+# Tic-Tac-Toe
+Intelligent Tic-Tac-Toe
 
-## Compilation
-Run `py play.py` in this directory.
+## How to play
+1. Download, unzip, and `cd tictactoe`.
+2. Enter `py play.py` to begin the game.
+3. When prompted, enter _zero-based Cartesian coordinates_: `00`, `12`, etc.
 
-## Usage
-To make a move, enter *positive*, zero-indexed Cartesian coordinates: `00`, `12`, etc.
-
-## Assumptions
-- `2 < WIDTH < 6`
-
-## Note
-The AI is only effective at playing 3x3 games, and does poorly for larger games.
+## Limitations
+- Works poorly for games larger than 3x3 (the default size)

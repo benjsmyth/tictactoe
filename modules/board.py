@@ -1,18 +1,21 @@
-class Board():
+from io import StringIO
+
+class Board:
+    EMPTY = '.'.center(3, ' ')
+    
     def __init__(self, width):
+        # Initialize the game board.
         self.width = width
-        self.board = [  # Internal data structure
-            [None for _ in range(width)] for _ in range(width)]
-        self.cells = [  # Flattened array of coordinates
-            (i, j) for i in range(width) for j in range(width)]
+        self.board = [[None for _ in range(width)] for _ in range(width)]
+        self.cells = [(i, j) for i in range(width) for j in range(width)]
 
     def __str__(self):
-        output = "\n"
+        # Visualize the game board.
+        output = StringIO('\n')
         for row in self.board:
             for piece in row:
-                output += " . " if piece is None else str(piece)
-            output += "\n"
-        output += "\n"
+                output.write(Board.EMPTY if piece is None else str(piece))
+        output.write()  # Newline
         return output
 
     def get(self, cell):
