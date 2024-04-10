@@ -13,7 +13,7 @@ class Board:
         output = StringIO(NEWLINE)
         for row in self.board:
             for piece in row:
-                output.write(EMPTY if piece is None else str(piece))
+                output.write(str(piece) if piece else EMPTY)
             output.write(NEWLINE)
         output.write(NEWLINE)
         value = output.getvalue()
@@ -28,10 +28,12 @@ class Board:
     def legal_move(self, cell, output=False):
         """Check if a given position is valid."""
         cell = tuple(map(int, cell))
-        if cell not in self.cells:  # Off-board
+        if cell not in self.cells:
+            # Off-board
             if output: print(f"{cell} is not on the board.")
             return False
-        elif self.get(cell) is not None:  # Occupied cell
+        elif self.get(cell) is not None:
+            # Occupied cell
             if output: print(f"{cell} is already occupied.")
             return False
         return True
