@@ -7,4 +7,4 @@ Intelligent Tic-Tac-Toe
 3. When prompted, enter _zero-based Cartesian coordinates_: `00`, `12`, etc.
 
 ## Limitations
-- Works poorly for games larger than 3x3
+- Works poorly for games larger than 3x3 (the default size)
