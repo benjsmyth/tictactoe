@@ -1,8 +1,6 @@
 from io import StringIO
 
 class Board:
-    EMPTY = '.'.center(3, ' ')
-    
     def __init__(self, width):
         # Initialize the game board.
         self.width = width
@@ -11,12 +9,15 @@ class Board:
 
     def __str__(self):
         # Visualize the game board.
-        output = StringIO('\n')
+        EMPTY, NEWLINE = " . ", '\n'
+        output = StringIO(NEWLINE)
         for row in self.board:
             for piece in row:
-                output.write(Board.EMPTY if piece is None else str(piece))
-        print(output)  # Newline
-        return output
+                output.write(EMPTY if piece is None else str(piece))
+            output.write(NEWLINE)
+        output.write(NEWLINE)
+        value = output.getvalue()
+        return value
 
     def get(self, cell):
         i, j = map(int, cell)
