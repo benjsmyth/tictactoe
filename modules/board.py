@@ -12,8 +12,7 @@ class Board:
         EMPTY, NEWLINE = " . ", '\n'
         output = StringIO(NEWLINE)
         for row in self.board:
-            for piece in row:
-                output.write(str(piece) if piece else EMPTY)
+            for piece in row: output.write(str(piece) if piece else EMPTY)
             output.write(NEWLINE)
         output.write(NEWLINE)
         value = output.getvalue()
