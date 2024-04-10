@@ -15,7 +15,7 @@ class Board:
         for row in self.board:
             for piece in row:
                 output.write(Board.EMPTY if piece is None else str(piece))
-        output.write()  # Newline
+        print(output)  # Newline
         return output
 
     def get(self, cell):
