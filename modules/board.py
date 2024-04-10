@@ -20,11 +20,13 @@ class Board:
         return value
 
     def get(self, cell):
+        """Get the piece at a given position."""
         i, j = map(int, cell)
         piece = self.board[i][j]
         return piece
 
     def legal_move(self, cell, output=False):
+        """Check if a given position is valid."""
         cell = tuple(map(int, cell))
         if cell not in self.cells:  # Off-board
             if output: print(f"{cell} is not on the board.")
@@ -35,5 +37,6 @@ class Board:
         return True
 
     def set(self, piece, cell):
+        """Set a given piece at a given position."""
         i, j = map(int, cell)
         self.board[i][j] = piece
