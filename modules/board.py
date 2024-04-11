@@ -2,13 +2,11 @@ from io import StringIO
 
 class Board:
     def __init__(self, width):
-        # Initialize the game board.
         self.width = width
         self.board = [[None for _ in range(width)] for _ in range(width)]
         self.cells = [(i, j) for i in range(width) for j in range(width)]
 
     def __str__(self):
-        # Visualize the game board.
         EMPTY, NEWLINE = " . ", '\n'
         output = StringIO(NEWLINE)
         for row in self.board:
