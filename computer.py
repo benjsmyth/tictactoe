@@ -1,5 +1,5 @@
 from math import inf
-from modules.player import Player
+from player import Player
 from time import process_time
 
 

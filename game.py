@@ -1,8 +1,8 @@
 from copy import deepcopy
 from itertools import combinations
 from math import inf
-from modules.board import Board
-from modules.pieces import O, X
+from board import Board
+from pieces import O, X
 from time import process_time
 
 
