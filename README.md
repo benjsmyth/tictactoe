@@ -1,5 +1,5 @@
 # Tic-Tac-Toe
-Intelligent Tic-Tac-Toe
+Intelligent Tic-Tac-Toe, using the [minimax search algorithm](https://en.wikipedia.org/wiki/Minimax) with optional [alpha-beta pruning](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning).
 
 ## How to play
 1. Download, unzip, and `cd` into `tictactoe`.
