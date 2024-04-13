@@ -1,9 +1,10 @@
 # Tic-Tac-Toe
-Intelligent Tic-Tac-Toe, using the [minimax search algorithm](https://en.wikipedia.org/wiki/Minimax) with optional [alpha-beta pruning](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning).
+Intelligent Tic-Tac-Toe, using the [minimax search algorithm](https://en.wikipedia.org/wiki/Minimax) with [alpha-beta pruning](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning).
 
 ## How to play
-1. Download, unzip, and `cd` into `tictactoe`.
-2. Enter `python3 tictactoe.py <width=3> <power=2>` to begin the game.
+1. Install the latest version of Python.
+2. Download, unzip, and `cd` into `tictactoe`.
+3. Enter `python3 tictactoe.py <width=3> <power=2>` to begin the game.
    - `width` defines the board size.
      - For example, `3` creates a board with `3*3 = 9` cells.
    - `power` defines the search depth.
