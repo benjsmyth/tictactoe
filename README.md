@@ -4,7 +4,7 @@ Intelligent Tic-Tac-Toe, using the [minimax search algorithm](https://en.wikiped
 ## How to play
 1. Install the latest version of Python.
 2. Download, unzip, and `cd` into `tictactoe`.
-3. Enter `python3 tictactoe.py <width=3> <power=2>` to begin the game.
+3. Enter `python<version> tictactoe.py <width=3> <power=2>` to begin the game.
    - `width` defines the board size.
      - For example, `3` creates a board with `3*3 = 9` cells.
    - `power` defines the search depth.
