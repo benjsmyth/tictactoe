@@ -1,5 +1,5 @@
 # Tic-Tac-Toe
-Intelligent Tic-Tac-Toe, using the [minimax search algorithm](https://en.wikipedia.org/wiki/Minimax) with [alpha-beta pruning](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning).
+Intelligent Tic-Tac-Toe, using the [minimax search algorithm](https://en.wikipedia.org/wiki/Minimax).
 
 ## How to play
 1. Install the latest version of [Python](https://www.python.org/downloads/).
