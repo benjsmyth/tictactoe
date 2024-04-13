@@ -6,7 +6,6 @@ Intelligent Tic-Tac-Toe, using the [minimax search algorithm](https://en.wikiped
 2. Download, unzip, and `cd` into `tictactoe`.
 3. Enter `python<version> tictactoe.py <options>` to begin the game.
 4. When prompted, enter row-column coordinates: `11`, `23`, etc.
-  - The origin `(1, 1)` is at the top-left.
   
 ## Options
 ### Quantifiers
