@@ -8,15 +8,12 @@ Intelligent Tic-Tac-Toe, using the [minimax search algorithm](https://en.wikiped
 4. When prompted, enter row-column coordinates: `11`, `23`, etc.
   
 ## Options
-### Quantifiers
-- `-w<width>` defines the square board size, where `width` must be an integer.
-  - For example, `-w3` defines a board with `3*3 = 9` positions.
-- `-d<depth>` defines the exponent to the `width`, where `depth` must be a float.
-  - For example, `-w3 -d2` limits the maximum search depth to `3^2 = 9`.
-  - Fractions are rounded: `-d1.5` limits the search depth to `3^1.5 ≈ 5`.
-### Qualifiers
-- `-p` enables [alpha-beta pruning](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning) for a faster search process.
-- `-t` enables the timing and introspection of the AI's search process.
+`<options>` must follow the sequence `<width> <depth>`.
+- `<width>` is an integer that sets the square board size.
+  - `-w3` yields board with `3*3 = 9` positions.
+- `<depth>` is a float `<= 2` and `>= 1` that raises the `width` to set a limited search depth.
+  - `-w3 -d2` yields a limited search depth of `3^2 = 9`.
+  - `-d1.5` yields `3^1.5 ≈ 5`.
   
 ## Limitations
-- A higher `width` or `depth` will lead to a slower search time.
+- A higher `width` or `depth` leads to a slower search time.
