@@ -48,7 +48,7 @@ class Game:
                 self.state['p1'], self.state['p2'] = \
                     self.computer, self.player
             else:  # Computer turn
-                print("Searching ...")
+                print("Searching...")
                 start = process_time()
                 action, nodes = self.state['p1'].minimax_search(self, start) if not self.prune \
                     else self.state['p1'].ab_search(self, start)
@@ -65,6 +65,7 @@ class Game:
                 self.state['p1'], self.state['p2'] = \
                     self.player, self.computer
             print()  # Newline
+            # Add tie check here
         print(self.state['board'])
         return winner
 
@@ -73,14 +74,6 @@ class Game:
             piece_count = sum(1 for piece in column if piece is not None \
                 and isinstance(piece, team))
             if piece_count == self.width:
-                return True
-        return False
-
-    def has_column_part(self, state, team):
-        for column in zip(*state['board'].board):
-            piece_count = sum(1 for piece in column if piece is not None \
-                and isinstance(piece, team))
-            if piece_count > 1 and piece_count < self.width:
                 return True
         return False
 
@@ -95,47 +88,12 @@ class Game:
                 return True
         return False
 
-    def has_plus(self, state, team):
-        i, j = 1, 1
-        while i < self.width - 1:
-            while j < self.width - 1:
-                plus = (i, j), (i-1, j), (i, j+1), (i+1, j), (i, j-1)
-                piece_count = sum(1 for cell in plus \
-                    if isinstance(state['board'].get(cell), team))
-                if piece_count == 5:
-                    return True
-                j += 1
-            i += 1
-            j += 1
-        return False
-
     def has_row(self, state, team):
         for row in state['board'].board:
             piece_count = sum(1 for piece in row if piece is not None \
                 and isinstance(piece, team))
             if piece_count == self.width:
                 return True
-        return False
-
-    def has_row_part(self, state, team):
-        for row in state['board'].board:
-            piece_count = sum(1 for piece in row if piece is not None \
-                and isinstance(piece, team))
-            if piece_count > 1 and piece_count < self.width:
-                return True
-        return False
-
-    def has_square(self, state, team):
-        i, j = 0, 0
-        while i < self.width - 1:
-            while j < self.width - 1:
-                square = (i, j), (i, j+1), (i+1, j), (i+1, j+1)
-                piece_count = sum(1 for cell in square \
-                    if isinstance(state['board'].get(cell), team))
-                if piece_count == 4:
-                    return True
-                j += 1
-            i += 1
         return False
 
     def is_cutoff(self, state):
@@ -150,13 +108,6 @@ class Game:
             or self.has_diagonal(state, O)
             or self.has_row(state, O)):
             return self.computer
-        if self.width > 3:  # Complex wins
-            if (self.has_plus(state, X)
-                or self.has_square(state, X)):
-                return self.player
-            elif (self.has_plus(state, O)
-                or self.has_square(state, O)):
-                return self.computer
         return False
 
     def report(self):
@@ -177,20 +128,3 @@ class Game:
         elif self.is_terminal(state) is self.player:
             utility -= 1  # Lose
         return utility
-
-    def utility2(self, state):
-        if state['p1'] is self.computer:
-            return self.block(state)
-        else: return -self.blockline(state)
-
-    def blockline(self, state):
-        for cell1, cell2 in combinations(state['board'].cells, 2):
-            c1 = state['board'].get(cell1)
-            c2 = state['board'].get(cell2)
-            if c1 is not None and c2 is not None:
-                c1i, c1j = cell1
-                c2i, c2j = cell2
-                if c1.__class__ is not c2.__class__:
-                    if c1i == c2i or c1j == c2j:
-                        return True
-        return False

@@ -6,14 +6,14 @@ from sys import argv
 
 try:
   WIDTH = int(argv[1])
-  POWER = int(argv[2])
+  POWER = float(argv[2])
 except IndexError: ...
 
 game = Game(
   p1=Player(X),
   p2=Computer(O),
   width=WIDTH,
-  limit=pow(WIDTH, POWER),
+  limit=round(pow(WIDTH, POWER)),
   prune=True,
   order=False,
   utype=1)
