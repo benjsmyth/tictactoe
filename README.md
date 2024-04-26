@@ -11,6 +11,6 @@ Intelligent Tic-Tac-Toe, built on the [minimax search algorithm](https://en.wiki
 `<options>` must follow the sequence `<width> <exponent>`.
 - `<width>` is an integer that sets the square board size. (The default is `3`.)
   - For example, `3` creates a board with `3*3 = 9` positions.
-- `<exponent>` is a float `<= 2` and `>= 1` that exponentiates the `width` to set a limited search depth. (The default is `2`.)
+- `<exponent>` is a float `<= 2` and `>= 1` that exponentiates the `width` to set a limited search depth. (The default is `2`.) The exponent can be used as a parameter that controls the breadth of the search tree; lower it when using a larger `width`.
   - For example, `3 2` creates a limited search depth of `3^2 = 9`.
   - For a fractional exponent, the resulting power is rounded to the nearest integer.
