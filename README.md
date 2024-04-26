@@ -6,6 +6,7 @@ Intelligent Tic-Tac-Toe, using the [minimax search algorithm](https://en.wikiped
 2. Download, unzip, and `cd` into `tictactoe`.
 3. Enter `python<version> tictactoe.py <options>` to begin the game.
 4. When prompted, enter zero-indexed row-column coordinates: `00`, `12`, etc.
+  - The origin refers to the top-left of the board.
   
 ## Options
 `<options>` must follow the sequence `<width> <depth>`.
