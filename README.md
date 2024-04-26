@@ -12,5 +12,4 @@ Intelligent Tic-Tac-Toe, built on the [minimax search algorithm](https://en.wiki
 - `<width>` is an integer that sets the square board size. (The default is `3`.)
   - For example, `3` creates a board with `3*3 = 9` positions.
 - `<depth>` is a float `<= 2` and `>= 1` that raises the `width` to set a limited search depth. (The default is `2`.)
-  - For example, `3 2` creates a limited search depth of `3^2 = 9`.
-  - Fractional results are rounded: `3 1.5` returns `5`.
+  - For example, `3 2` creates a limited search depth of `3^2 = 9`. (This can be a float, and the result will be rounded.)
