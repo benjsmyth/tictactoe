@@ -2,9 +2,9 @@
 Intelligent Tic-Tac-Toe, built on the [minimax search algorithm](https://en.wikipedia.org/wiki/Minimax) and optimized with [alpha-beta pruning](https://en.wikipedia.org/wiki/Alpha%E2%80%93beta_pruning).
 
 ## How to play
-1. Install the latest version of [Python](https://www.python.org/downloads/).
-2. Download, unzip, and `cd` into `tictactoe`.
-3. Enter `python<version> tictactoe.py <options>` to begin the game.
+1. Install [the latest version of Python](https://www.python.org/downloads/).
+2. Download and unzip this repository, and from your command line `cd` into `tictactoe`.
+3. Execute Python with `tictactoe.py <options>` to begin the game.
 4. When prompted, enter zero-indexed row-column coordinates: `00`, `12`, etc. (The origin refers to the top-left of the board.)
   
 ## Options
