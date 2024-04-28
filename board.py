@@ -1,5 +1,6 @@
 from io import StringIO
 
+
 class Board:
     def __init__(self, width):
         self.width = width

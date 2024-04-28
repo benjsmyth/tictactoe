@@ -3,6 +3,7 @@ from copy import deepcopy
 from pieces import O, X
 from time import process_time
 
+
 class Game:
     def __init__(self, p1, p2, width=3, limit=9, prune=True, order=False, utype=1):
         self.player = p1

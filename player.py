@@ -1,6 +1,7 @@
 from math import inf
 from time import process_time
 
+
 class Player:
     def __init__(self, team):
         self.team = team
@@ -8,14 +9,20 @@ class Player:
     def __str__(self):
         return str(self.team.__name__)
 
+
 class Computer(Player):
     def __init__(self, team):
-        self.nodes = 0
-        self.start = 0
         super().__init__(team)
 
+    def ab_search(self, game):
+        _, move = self.max_value(game, game.state, alpha=-inf, beta=inf)
+        return move, self.nodes
+
+    def minimax_search(self, game):
+        _, move = self.max_value(game, game.state)
+        return move, self.nodes
+
     def max_value(self, game, state, alpha=None, beta=None):
-        self.nodes += 1
         if game.is_cutoff(state) or game.is_terminal(state) or process_time()-self.start > 60:
             return game.utility(state) if game.utype == 1 \
                 else game.utility2(state), None
@@ -43,7 +50,6 @@ class Computer(Player):
         return utility, move
 
     def min_value(self, game, state, alpha=None, beta=None):
-        self.nodes += 1
         if game.is_cutoff(state) or game.is_terminal(state):
             return game.utility(state) if game.utype == 1 \
                 else game.utility2(state), None
@@ -69,15 +75,3 @@ class Computer(Player):
                 if alpha and utility <= alpha:
                     return utility, move
         return utility, move
-
-    def minimax_search(self, game, start):
-        self.nodes = 0
-        self.start = start
-        _, move = self.max_value(game, game.state)
-        return move, self.nodes
-
-    def ab_search(self, game, start):
-        self.nodes = 0
-        self.start = start
-        _, move = self.max_value(game, game.state, alpha=-inf, beta=inf)
-        return move, self.nodes

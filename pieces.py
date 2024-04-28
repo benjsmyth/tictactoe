@@ -9,6 +9,7 @@ class Piece():
     def set(self, cell):
         self.cell = cell
 
+
 class O(Piece):
     def __init__(self, cell=None):
         super().__init__('O', cell)
