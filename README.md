@@ -16,4 +16,4 @@ Intelligent Tic-Tac-Toe, built on the [minimax search algorithm](https://en.wiki
   - For a fractional exponent, the resulting power is rounded to the nearest integer.
 
 ## Bugs
-- `game.Game` does not recognize certain Tie conditions.
+- `game.Game` does not recognize certain tie conditions.
