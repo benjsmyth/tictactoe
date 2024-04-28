@@ -1,5 +1,5 @@
-from copy import deepcopy
 from board import Board
+from copy import deepcopy
 from pieces import O, X
 from time import process_time
 
