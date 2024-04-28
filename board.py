@@ -7,10 +7,11 @@ class Board:
         self.cells = [(i, j) for i in range(width) for j in range(width)]
 
     def __str__(self):
-        EMPTY, NEWLINE = " . ", '\n'
+        NEWLINE = '\n'
         output = StringIO(NEWLINE)
         for row in self.board:
-            for piece in row: output.write(str(piece) if piece else EMPTY)
+            for piece in row: output.write(
+                "{:^3}".format(str(piece) if piece else '.'))
             output.write(NEWLINE)
         output.write(NEWLINE)
         value = output.getvalue()

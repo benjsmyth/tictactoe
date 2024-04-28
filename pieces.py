@@ -4,11 +4,10 @@ class Piece():
         self.cell = cell
 
     def __str__(self):
-        return f" {self.team} "
+        return f"{self.team}"
 
     def set(self, cell):
         self.cell = cell
-
 
 class X(Piece):
     def __init__(self, cell=None):
