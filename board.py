@@ -10,8 +10,8 @@ class Board:
         NEWLINE = '\n'
         output = StringIO(NEWLINE)
         for row in self.board:
-            for piece in row: output.write(
-                "{:^3}".format(str(piece) if piece else '.'))
+            for piece in row: output.write("{:^3}".format(
+                str(piece) if piece else '.'))
             output.write(NEWLINE)
         output.write(NEWLINE)
         value = output.getvalue()
