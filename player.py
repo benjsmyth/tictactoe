@@ -1,14 +1,12 @@
 from math import inf
 from time import process_time
 
-
 class Player:
     def __init__(self, team):
         self.team = team
 
     def __str__(self):
         return str(self.team.__name__)
-
 
 class Computer(Player):
     def __init__(self, team):
