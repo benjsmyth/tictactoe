@@ -15,24 +15,19 @@ class Computer(Player):
         self.start = 0
         super().__init__(team)
 
-    def minimax(self, game, start):
+    def minimax(self, game):
         """Perform a minimax search on the game state."""
-        self.nodes = 0
-        self.start = start
-        _, move = self.max_value(game, game.state)
-        return move, self.nodes
+        _, move = self.maxmove(game, game.state)
+        return move
 
-    def alphabeta(self, game, start):
+    def alphabeta(self, game):
         """Perform an alpha-beta search on the game state."""
-        self.nodes = 0
-        self.start = start
         _, move = self.maxmove(game, game.state, alpha=-inf, beta=inf)
-        return move, self.nodes
+        return move
 
     def maxmove(self, game, state, alpha=None, beta=None):
         """Return the next move with the maximum utility."""
-        self.nodes += 1
-        if game.is_cutoff(state) or game.is_terminal(state) or process_time()-self.start > 60:
+        if game.is_cutoff(state) or game.is_terminal(state) or process_time()-self.start>60:
             return game.utility(state), None
         utility = -inf
         for action in game.actions(state):
@@ -47,8 +42,7 @@ class Computer(Player):
 
     def minmove(self, game, state, alpha=None, beta=None):
         """Return the next move with the minimum utility."""
-        self.nodes += 1
-        if game.is_cutoff(state) or game.is_terminal(state) or process_time()-self.start > 60:
+        if game.is_cutoff(state) or game.is_terminal(state) or process_time()-self.start>60:
             return game.utility(state), None
         utility = inf
         for action in game.actions(state):

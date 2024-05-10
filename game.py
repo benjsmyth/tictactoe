@@ -1,7 +1,6 @@
 from board import Board
 from copy import deepcopy
 from pieces import O, X
-from time import process_time
 
 
 class Game:
@@ -45,15 +44,11 @@ class Game:
                     self.computer, self.player
             else:  # Computer turn
                 print("Searching...")
-                start = process_time()
-                action, nodes = self.state['p1'].minimax(self, start) if not self.prune \
-                    else self.state['p1'].alphabeta(self, start)
-                end = process_time()
+                action = self.state['p1'].minimax(self) if not self.prune \
+                    else self.state['p1'].alphabeta(self)
                 print(f"Found {action}")
                 if action is None:
                     print(); return None  # Tie
-                else: print(nodes, "nodes at depth", self.state['depth'])
-                print(end - start, "seconds")
                 self.state = self.result(self.state, action)
                 if self.is_terminal(self.state) is self.computer:
                     winner = self.computer  # Computer wins
