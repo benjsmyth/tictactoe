@@ -46,8 +46,8 @@ class Game:
             else:  # Computer turn
                 print("Searching...")
                 start = process_time()
-                action, nodes = self.state['p1'].minimax_search(self, start) if not self.prune \
-                    else self.state['p1'].ab_search(self, start)
+                action, nodes = self.state['p1'].minimax(self, start) if not self.prune \
+                    else self.state['p1'].alphabeta(self, start)
                 end = process_time()
                 print(f"Found {action}")
                 if action is None:

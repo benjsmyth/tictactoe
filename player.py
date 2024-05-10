@@ -15,26 +15,29 @@ class Computer(Player):
         self.start = 0
         super().__init__(team)
 
-    def ab_search(self, game, start):
-        self.nodes = 0
-        self.start = start
-        _, move = self.max_value(game, game.state, alpha=-inf, beta=inf)
-        return move, self.nodes
-
-    def minimax_search(self, game, start):
+    def minimax(self, game, start):
+        """Perform a minimax search on the game state."""
         self.nodes = 0
         self.start = start
         _, move = self.max_value(game, game.state)
         return move, self.nodes
 
-    def max_value(self, game, state, alpha=None, beta=None):
+    def alphabeta(self, game, start):
+        """Perform an alpha-beta search on the game state."""
+        self.nodes = 0
+        self.start = start
+        _, move = self.maxmove(game, game.state, alpha=-inf, beta=inf)
+        return move, self.nodes
+
+    def maxmove(self, game, state, alpha=None, beta=None):
+        """Return the next move with the maximum utility."""
         self.nodes += 1
         if game.is_cutoff(state) or game.is_terminal(state) or process_time()-self.start > 60:
             return game.utility(state), None
         utility = -inf
         for action in game.actions(state):
             new_state = game.result(state, action)
-            utility2, _ = self.min_value(game, new_state, alpha, beta)
+            utility2, _ = self.minmove(game, new_state, alpha, beta)
             if utility2 > utility:
                 utility, move = utility2, action
                 if alpha: alpha = max(alpha, utility)
@@ -42,14 +45,15 @@ class Computer(Player):
                 return utility, move
         return utility, move
 
-    def min_value(self, game, state, alpha=None, beta=None):
+    def minmove(self, game, state, alpha=None, beta=None):
+        """Return the next move with the minimum utility."""
         self.nodes += 1
         if game.is_cutoff(state) or game.is_terminal(state) or process_time()-self.start > 60:
             return game.utility(state), None
         utility = inf
         for action in game.actions(state):
             new_state = game.result(state, action)
-            utility2, _ = self.max_value(game, new_state, alpha, beta)
+            utility2, _ = self.maxmove(game, new_state, alpha, beta)
             if utility2 < utility:
                 utility, move = utility2, action
                 if beta: beta = min(beta, utility)
