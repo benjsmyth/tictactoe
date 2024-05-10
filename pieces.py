@@ -7,6 +7,7 @@ class Piece():
         return f"{self.team}"
 
     def set(self, cell):
+        """Update a piece's board position."""
         self.cell = cell
 
 

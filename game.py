@@ -10,7 +10,7 @@ class Game:
         self.width = width
         self.limit = limit
         self.prune = prune
-        self.state = {  # Game state
+        self.state = {
             'p1': p1,
             'p2': p2,
             'board': Board(width),
@@ -21,11 +21,13 @@ class Game:
         return f"{self.state['board']} depth={self.state['depth']}\n"
 
     def actions(self, state):
+        """Generate the open board positions."""
         for cell in state['board'].cells:
             if state['board'].legal_move(cell):
                 yield cell
 
     def play(self):
+        """Trigger the main game loop."""
         winner = None
         while True:  # Game loop
             print(self.state['p1'], self.state['depth'], sep='|')
@@ -40,12 +42,11 @@ class Game:
                 if self.is_terminal(self.state) is self.player:
                     winner = self.player  # Player wins
                     break  # Game over
-                self.state['p1'], self.state['p2'] = \
-                    self.computer, self.player
+                self.state['p1'], self.state['p2'] = self.computer, self.player
             else:  # Computer turn
                 print("Searching...")
-                action = self.state['p1'].minimax(self) if not self.prune \
-                    else self.state['p1'].alphabeta(self)
+                action = self.state['p1'].alphabeta(self) if self.prune \
+                    else self.state['p1'].minimax(self)
                 print(f"Found {action}")
                 if action is None:
                     print(); return None  # Tie
