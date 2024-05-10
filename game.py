@@ -5,14 +5,12 @@ from time import process_time
 
 
 class Game:
-    def __init__(self, p1, p2, width=3, limit=9, prune=True, order=False, utype=1):
+    def __init__(self, p1, p2, width=3, limit=9, prune=True):
         self.player = p1
         self.computer = p2
         self.width = width
         self.limit = limit
         self.prune = prune
-        self.order = order
-        self.utype = utype
         self.state = {  # Game state
             'p1': p1,
             'p2': p2,

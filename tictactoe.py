@@ -16,9 +16,7 @@ game = Game(
   p2=Computer(O),
   width=WIDTH,
   limit=round(pow(WIDTH, EXPONENT)),
-  prune=True,
-  order=False,
-  utype=1)
+  prune=True)
 
 print("\nTic-Tac-Toe\n")
 winner = game.play()
